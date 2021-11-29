@@ -1,0 +1,42 @@
+Entropia de data_set '8x8': 1.1223
+La suma total de todos los k2_tree es: 5981 bytes.
+Datos para data_set 8x8
+Entropia: 1.1223
+Peso (en bytes) vector v: 61449
+Peso (en bytes) vector vPrima: 3209
+Peso (en bytes) vector de bits: 968
+
+Datos para data_set 8x8
+Entropia: 1.1223
+Peso (en bytes) vector v: 4809
+Peso (en bytes) vector vPrima: 265
+Peso (en bytes) vector de bits: 968
+
+Entropia de data_set '128x128': 1.89803
+La suma total de todos los k2_tree es: 151621 bytes.
+Datos para data_set 128x128
+Entropia: 1.89803
+Peso (en bytes) vector v: 15728649
+Peso (en bytes) vector vPrima: 1509753
+Peso (en bytes) vector de bits: 245768
+
+Datos para data_set 128x128
+Entropia: 1.89803
+Peso (en bytes) vector v: 1474569
+Peso (en bytes) vector vPrima: 141553
+Peso (en bytes) vector de bits: 245768
+
+Entropia de data_set '512x512': 4.5655
+La suma total de todos los k2_tree es: 4918949 bytes.
+Datos para data_set 512x512
+Entropia: 4.5655
+Peso (en bytes) vector v: 251658249
+Peso (en bytes) vector vPrima: 52003553
+Peso (en bytes) vector de bits: 3932168
+
+Datos para data_set 512x512
+Entropia: 4.5655
+Peso (en bytes) vector v: 23592969
+Peso (en bytes) vector vPrima: 4875345
+Peso (en bytes) vector de bits: 3932168
+
