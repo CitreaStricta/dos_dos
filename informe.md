@@ -2,23 +2,27 @@
 </br>
 <b>Felipe Cerda</b>
 <b>Cristian Pérez</b>
-<b>Chulz Schultz</b>
+<b>Vicente Schultz</b>
 </br>
 
 ## Introducción
 
-Para realizar este proyecto recurrimos a la librería SDSL que proporciona muchas estructuras de datos compactas. 
+Para realizar este proyecto recurrimos a la librería SDSL que proporciona muchas estructuras de datos compactas.
 
 Un `int_vector<w>` es un contenedor de enteros de una anchura fija de w bits. 
 
 La función `size_in_bytes(o)` de la librería SDSL, retorna el espacio que ocupa un objeto o de SDSL. 
 
+Para realizar este proyecto recurrimos a la librería SDSL que proporciona muchas estructuras de datos compactas. 
 Las clases `sd_vector` y `rrr_vector` son implementaciones compactas de un bitmap que soportan la operación `rank` en tiempo `O(1)`. Para el desarrollo de este proyecto usamos `rrr_vector` (que es la que utiliza menos espacio) toda vez que necesitamos almacenar cadenas de bits.
 
+Para realizar este proyecto recurrimos a la librería SDSL que proporciona muchas estructuras de datos compactas.
 Para poder calcular `rank` utilizamos la clase Rank Support de la SDSL. Esta provee soporte de rank para las distintas implementaciones de bitvector que ofrece.
 
+Para realizar este proyecto recurrimos a la librería SDSL que proporciona muchas estructuras de datos compactas.
 La función `util::bit_compress()`, determina el mayor valor X, y así ajusta la anchura al menor valor posible para seguir representando los mismos valores.
 
+Para realizar este proyecto recurrimos a la librería SDSL que proporciona muchas estructuras de datos compactas.
 La clase `k2-tree` provee la implementación de la estructura de datos homónima. Originalmente pensada para la representación de grafos web. Los grafos web son grafos en los que cada nodo representa una dirección web y cada arista un hipervínculo entre una y otra. Estos grafos pueden pesar sobre 600GB. Al ser un grafo hiperconectado, surge la necesidad de almacenarlo de manera compacta. Básicamente k2-tree es una representación compacta de una matriz de adyacencia y que además soporta navegación hacia adelante y atrás. Se saca provecho del hecho de que en la matriz de adyacencias hay grandes áreas vacías.
   
 
@@ -28,6 +32,7 @@ En adelante solo se hará referencia a las estructuras antes descritas sin entra
 
 ### 1. Calcular $H_0$ para cada uno de los datasets.
 
+Para realizar este proyecto recurrimos a la librería SDSL que proporciona muchas estructuras de datos compactas.
 **R:** Función para obtener la Entropía de Shannon de un dataset. Una vez leído el dataset actual, se almacenan los valores en un objeto v `int_vector<>` que pertenece a la **librería SDSL.** (Problema 2). Toda la información que se trabajará, quedará guardada en la clase llamada `raster`. Luego, se procede a calcular la entropía, aplicando la siguiente fórmula al código: 
 
 $H = -\Sigma_{i=1}^{N}p_ilog(p_i)$
@@ -73,7 +78,7 @@ Los resultados obtenidos para las entropías de los tres dataset son las siguien
 
 ### 2. Para cada dataset, leer las matrices por filas (row-major order) y almacenar los valores en `int_vector<>`.
 
-**R:** Recorremos el directorio que contiene los archivos, luego vamos línea por línea leyendo las lecturas de temperatura de izquierda a derecha (row-major order) y almacenándolas en un `int_vector`, clase que pertenece a la **librería SDSL.** 
+ **R:** Recorremos el directorio que contiene los archivos, luego vamos línea por línea leyendo las lecturas de temperatura de izquierda a derecha (row-major order) y almacenándolas en un `int_vector`, clase que pertenece a la **librería SDSL.** 
 
 ```cpp
 // lee los data_sets y los guarda en un int_vector "v"
@@ -185,13 +190,14 @@ Para `512x512`:
 - `v`: 251,658,249 Bytes
 
 ### 4. Dada la representación anterior, soportar acceso a la posición i. Para ello, el bitmap se representará como un rrr_vector o un sd_vector (el que mejor espacio obtenga) con soporte para rank. Tener en cuenta que `v[i]=v’[rank(b,i)]`.
-   
+
 **R:** Para acceder a la posición $i$ usamos la función `at()`. Esta función utiliza el índice $j = rank(i) - 1$ que finalmente nos permite encontrar el valor buscado en `vPrima`. Para calcular `rank` utilizamos la clase `rank_support` perteneciente a la **librería SDSL**.
 
 ```cpp
 int raster::at(int indx)
 {
-    int j = rrrv_rank(indx) - 1;
+    if(indx == 0) return v[indx];
+    int j = rrrv_rank.rank(indx)-1;
     return vPrima[j];
 }
 ```
@@ -202,22 +208,22 @@ Sabemos que acceder a la posición $i$ en la implementación toma tiempo constan
 
 **Evaluación experimental:**
 
-Compararemos el tiempo que toma acceder a la posición $i$ en ambas implementaciones para el dataset de `8x8`. Se omiten las comparaciones para los dataset restantes por ser sus resultados equivalentes a los expuestos aquí.
+Compararemos el tiempo que toma acceder a la posición $i$ en ambas implementaciones para los datasets de `8x8`, `128x128` y `512x512`:
 
 </br>
 Para `8x8`:
-int_vector: 0.00000000000000254500
-implementacion compacta: 0.00000000000017950700
+int_vector: 0.00254500 [picoseg.]
+implementacion compacta: 0.17950700 [picoseg.]
 
 Para `128x128`:
-int_vector: 0.00000000000059951700
-implementacion compacta: 0.00000000000009147300
+int_vector: 0.59951700 [picoseg.]
+implementacion compacta: 0.09147300 [picoseg.]
 
 Para `512x512`:
-int_vector: 0.00000000000840861900
-implementacion compacta: 0.00000000000003955300
+int_vector: 8.40861900 [picoseg.]
+implementacion compacta: 0.03955300 [picoseg.]
 
-Para calcular el tiempo de las operaciones se repitio multiples veces cada operacion de busqueda con cantidades 
+Para calcular el tiempo de las operaciones se repitio multiples veces cada operacion de busqueda para sacar un promedio.
 
 
 ### 5. Sea $M_i$ la matriz en el instante $i$. Para toda matriz $Mi, i>=1$ (es decir, todas menos la primera de cada dataset), crear una matriz binaria $BM_i$ de tal forma que $BM_i[x][y]=(M_i[x][y]<>M_{i-1}[x][y])$. Es decir, para cada celda, almacena un 1 si el valor es diferente al valor de la misma celda en el instante anterior, y un 0 en caso contrario. Representar cada una de las matrices resultantes con un `k2-tree (sdsl/k2_tree.hpp)` y reportar el espacio que suman en total. Nota: el k2-tree no aparece en la cheat sheet por haber sido incorporado más tardíamente.
