@@ -201,7 +201,7 @@ Sabemos que acceder a la posición $i$ en la implementación toma tiempo constan
 
 **Evaluación experimental:**
 
-Compararemos el tiempo que toma acceder a la posición i en ambas implementaciones para el dataset de `8x8`. Se omiten las demás comparaciones por ser equivalentes.
+Compararemos el tiempo que toma acceder a la posición i en ambas implementaciones para el dataset de `8x8`. Se omiten las comparaciones para los dataset restantes por ser sus resultados equivalentes a los expuestos aquí.
 
 Para `8x8`:
 
@@ -243,29 +243,75 @@ void raster::creark2Tree()
 ```
 Luego, se calcula la suma de todo el espacio que ocupa cada `k2_tree`, y se muestra por consola el espacio que ocupa el dataset completo en base a esta estructura mencionada.
 
+Para `8x8`: 5981 Bytes.
+
+Para `128x128`: 151621 Bytes.
+
+Para `512x512`: 4918949 Bytes.
+
+
 ### 6. Por cada matriz, representar las diferencias con la matriz anterior de manera compacta. Pista: ejercicios 2 y 3. Nota: observar que las diferencias pueden ser negativas y debe proponerse alguna solución a dicho problema.
 
 **R:** La implementación es similar a la de los ejercicios 2 y 3. Tenemos un `bitmap` y `v'`, pero en lugar de guardar las lecturas guardamos las diferencias, $D_i = (M_i[x][y] - M_{i-1}[x][y])$ en `v'`. En el `bitmap` guardaremos un 1 cuando $D_{i+1} \neq D_i$.  
 
 ```cpp
+void raster::matrizDiferencias(){
+    
+    vector<vector<int>> matrizBase = mat_list[0];
+    vector<int> diferencias;
+    bit_vector repeticiones(v.size());
+    int indicador=0; 
 
+    for(int i=1; i<120; i++){
+        indicador = calcularDiferencia(mat_list[i], mat_list[i-1], diferencias, repeticiones, indicador);
+    }
+
+    int_vector<> differences; //v'
+    differences.resize(diferencias.size());
+    for (int i = 0; i < diferencias.size(); i++)
+        differences[i] = diferencias[i];
+
+    cout
+    << "Peso (en bytes) de differences  (int_vector): " << size_in_bytes(differences) << "\n"
+    << "Peso (en bytes) de repeticiones (bit_vector): " << size_in_bytes(repeticiones)
+    << endl;
+}
+
+int raster::calcularDiferencia(vector<vector<int>> mActual, vector<vector<int>> mAnterior, vector<int> &dif, bit_vector &rep, int ind){
+    for(int i=0; i<mActual.size(); i++){
+        for(int j=0; j<mActual[i].size(); j++){
+            int resta = mActual[i][j] - mAnterior[i][j];
+            if(dif.size() == 0){
+                rep[0] = 1;
+                dif.push_back(resta);
+                ind++;
+                continue;
+            }
+            if(resta == dif.back()){
+                rep[ind] = 0;
+            }else{
+                rep[ind] = 1;
+                dif.push_back(resta);
+            }
+            ind++;
+        }
+    }
+    return ind;
+}
 ```
 
 **Análisis Experimental:**
 
-Haciendo uso de la función `size_in_bytes` de la librería SDSL, mostramos el tamaño que ocupan las distintas estructuras de datos. Para efectos de comparación se incluye el vector de diferencias `v'`, el bitmap y `M` que representa la sumatoria del espacio que ocupan las matrices originales.
+Haciendo uso de la función `size_in_bytes` de la librería SDSL, mostramos el tamaño que ocupan las distintas estructuras de datos. Se incluye el vector de diferencias `v'` y el bitmap `b`.
 
 Para `8x8`:
-- `M`: bytes
-- `v'`: bytes
-- `b`:  bytes
+- `v'`: 5,129 bytes
+- `b`: 968 bytes
 
 Para `128x128`:
-- `M`: bytes
-- `v'`: bytes
-- `b`: bytes
+- `v'`: 1,892,001 bytes
+- `b`: 245,768 bytes
 
 Para `512x512`:
-- `M`: bytes
-- `v'`: bytes
-- `b`: bytes
+- `v'`: 71,461,417 bytes
+- `b`: 3,932,168 bytes

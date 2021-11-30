@@ -187,7 +187,6 @@ void raster::matrizDiferencias(){
     << "Peso (en bytes) de repeticiones (bit_vector): " << size_in_bytes(repeticiones)
     << endl;
 
-
     //RECORDAR QUE (int64_t)differences[i] ME DA EL VALOR NEGATIVO DE LAS DIFERENCIAS
 /*
     for (int i = 0; i < differences.size(); i++)

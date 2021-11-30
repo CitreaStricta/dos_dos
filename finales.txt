@@ -4,6 +4,8 @@ peso (en bytes) de rrrrrr_vector: 355
 La suma total de todos los k2_tree es: 5981 bytes.
 Peso (en bytes) de differences  (int_vector): 5129
 Peso (en bytes) de repeticiones (bit_vector): 968
+y, 'Usando util::bit_compress()'Peso (en bytes) de differences  (int_vector): 5129
+Peso (en bytes) de repeticiones (bit_vector): 968
 
 
 
@@ -26,6 +28,8 @@ peso (en bytes) de rrrrrr_vector: 116155
 La suma total de todos los k2_tree es: 151621 bytes.
 Peso (en bytes) de differences  (int_vector): 1892001
 Peso (en bytes) de repeticiones (bit_vector): 245768
+y, 'Usando util::bit_compress()'Peso (en bytes) de differences  (int_vector): 1892001
+Peso (en bytes) de repeticiones (bit_vector): 245768
 
 
 
@@ -47,6 +51,8 @@ Entropia de data_set '512x512': 4.56550238341898850791
 peso (en bytes) de rrrrrr_vector: 3034403
 La suma total de todos los k2_tree es: 4918949 bytes.
 Peso (en bytes) de differences  (int_vector): 71461417
+Peso (en bytes) de repeticiones (bit_vector): 3932168
+y, 'Usando util::bit_compress()'Peso (en bytes) de differences  (int_vector): 71461417
 Peso (en bytes) de repeticiones (bit_vector): 3932168
 
 
