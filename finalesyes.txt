@@ -4,48 +4,8 @@ peso (en bytes) de rrrrrr_vector: 355
 La suma total de todos los k2_tree es: 5981 bytes.
 Peso (en bytes) de differences  (int_vector): 5129
 Peso (en bytes) de repeticiones (bit_vector): 968
-y, 'Usando util::bit_compress()'Peso (en bytes) de differences  (int_vector): 5129
-Peso (en bytes) de repeticiones (bit_vector): 968
-tiempo de busqueda usando el int_vector v: 50000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 50000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 100000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 100000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 150000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 150000,0.00000000115000000000
-tiempo de busqueda usando el int_vector v: 200000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 200000,0.00000000147500000000
-tiempo de busqueda usando el int_vector v: 250000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 250000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 300000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 300000,0.00000000117500000000
-tiempo de busqueda usando el int_vector v: 350000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 350000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 400000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 400000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 450000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 450000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 500000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 500000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 550000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 550000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 600000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 600000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 650000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 650000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 700000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 700000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 750000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 750000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 800000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 800000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 850000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 850000,0.00000000162500000000
-tiempo de busqueda usando el int_vector v: 900000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 900000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 950000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 950000,0.00000000150000000000
-tiempo de busqueda usando el int_vector v: 1000000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 1000000,0.00000000070000000000
+tiempo de busqueda usando el int_vector v: 0,0.00000000000000254500
+tiempo de busqueda usando vPrima, el bit map y la operacion rank: 0,0.00000000000017950700
 Datos para data_set 8x8 sin 'util::bit_compress()'
 Entropia: 1.12230188477954984094
 Peso (en bytes) vector v: 61449
@@ -65,48 +25,8 @@ peso (en bytes) de rrrrrr_vector: 116155
 La suma total de todos los k2_tree es: 151621 bytes.
 Peso (en bytes) de differences  (int_vector): 1892001
 Peso (en bytes) de repeticiones (bit_vector): 245768
-y, 'Usando util::bit_compress()'Peso (en bytes) de differences  (int_vector): 1892001
-Peso (en bytes) de repeticiones (bit_vector): 245768
-tiempo de busqueda usando el int_vector v: 50000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 50000,0.00000000107500000000
-tiempo de busqueda usando el int_vector v: 100000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 100000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 150000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 150000,0.00000000067500000000
-tiempo de busqueda usando el int_vector v: 200000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 200000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 250000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 250000,0.00000000102500000000
-tiempo de busqueda usando el int_vector v: 300000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 300000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 350000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 350000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 400000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 400000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 450000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 450000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 500000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 500000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 550000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 550000,0.00000000072500000000
-tiempo de busqueda usando el int_vector v: 600000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 600000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 650000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 650000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 700000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 700000,0.00000000350000000000
-tiempo de busqueda usando el int_vector v: 750000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 750000,0.00000000115000000000
-tiempo de busqueda usando el int_vector v: 800000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 800000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 850000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 850000,0.00000000147500000000
-tiempo de busqueda usando el int_vector v: 900000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 900000,0.00000000135000000000
-tiempo de busqueda usando el int_vector v: 950000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 950000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 1000000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 1000000,0.00000000072500000000
+tiempo de busqueda usando el int_vector v: 0,0.00000000000059951700
+tiempo de busqueda usando vPrima, el bit map y la operacion rank: 0,0.00000000000009147300
 Datos para data_set 128x128 sin 'util::bit_compress()'
 Entropia: 1.89803384373964867393
 Peso (en bytes) vector v: 15728649
@@ -126,48 +46,8 @@ peso (en bytes) de rrrrrr_vector: 3034403
 La suma total de todos los k2_tree es: 4918949 bytes.
 Peso (en bytes) de differences  (int_vector): 71461417
 Peso (en bytes) de repeticiones (bit_vector): 3932168
-y, 'Usando util::bit_compress()'Peso (en bytes) de differences  (int_vector): 71461417
-Peso (en bytes) de repeticiones (bit_vector): 3932168
-tiempo de busqueda usando el int_vector v: 50000,0.00000000007500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 50000,0.00000000075000000000
-tiempo de busqueda usando el int_vector v: 100000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 100000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 150000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 150000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 200000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 200000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 250000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 250000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 300000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 300000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 350000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 350000,0.00000000072500000000
-tiempo de busqueda usando el int_vector v: 400000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 400000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 450000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 450000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 500000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 500000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 550000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 550000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 600000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 600000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 650000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 650000,0.00000000072500000000
-tiempo de busqueda usando el int_vector v: 700000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 700000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 750000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 750000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 800000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 800000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 850000,0.00000000005000000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 850000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 900000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 900000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 950000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 950000,0.00000000070000000000
-tiempo de busqueda usando el int_vector v: 1000000,0.00000000002500000000
-tiempo de busqueda usando vPrima, el bit map y la operacion rank: 1000000,0.00000000072500000000
+tiempo de busqueda usando el int_vector v: 0,0.00000000000840861900
+tiempo de busqueda usando vPrima, el bit map y la operacion rank: 0,0.00000000000003955300
 Datos para data_set 512x512 sin 'util::bit_compress()'
 Entropia: 4.56550238341898850791
 Peso (en bytes) vector v: 251658249

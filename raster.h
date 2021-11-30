@@ -30,7 +30,7 @@ public:
     ~raster();
     void set_int_vector();
     double get_Entropy();
-    void convert_to_succint_version();
+    void convert_to_succinct_version();
     int at(int indice);
     void creark2Tree();
     void matrizDiferencias();

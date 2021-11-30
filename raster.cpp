@@ -86,7 +86,7 @@ double raster::get_Entropy()
 }
 
 // genera el vector vPrima y el bitmap del int_vector v
-void raster::convert_to_succint_version()
+void raster::convert_to_succinct_version()
 {
     b.resize(v.size()); // se debe pasar el tamaño de vec (8x8, 128x128 o 512x512 segun corresponda)
     vector<int> valores; // debe ser traspasado a un int_vector
@@ -116,12 +116,12 @@ void raster::convert_to_succint_version()
 // se puede usar este print para ver todos los valores en vPrima
     // cout << vPrima << endl;
 
-// 
+// s
  
     rrrv = rrr_vector<>(b);
     rrrv_rank.set_vector(&rrrv);
     rrr_vector<> rrrv(b);
-    cout << "peso (en bytes) de rrrrrr_vector: " << size_in_bytes(rrrv) << endl;
+    cout << "peso (en bytes) de rrr_vector: " << size_in_bytes(rrrv) << endl;
 
     // cout << "peso de sd_vector y rrr_vector con bit_compress: " << endl;
 
@@ -135,7 +135,9 @@ void raster::convert_to_succint_version()
 // numero: el i-esimo elemento en el int_vector v
 int raster::at(int indx)
 {
-    return vPrima[rrrv_rank(indx) - 1];
+    if(indx == 0) return v[indx];
+    int j = rrrv_rank.rank(indx)-1;
+    return vPrima[j];
 }
 
 void raster::creark2Tree()

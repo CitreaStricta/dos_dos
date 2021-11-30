@@ -14,38 +14,34 @@ int main(int argc, char const *argv[]) // compilar con: g++ -std=c++17 -O3 -DNDE
     ras.set_int_vector();
     ras.get_Entropy();
     cout << "Entropia de data_set " << "'8x8': " <<  ras.get_Entropy() << endl;
-    ras.convert_to_succint_version();
+    ras.convert_to_succinct_version();
     ras.creark2Tree();
     ras.matrizDiferencias();
 
     srand(time(NULL));
     int n;
-    int rep = 200;
+    int rep = 1000000;
     double time, duracion;
-    int nElementosXCantidad_Muestras = 50000;
-    int cant_valores_Tabla = 20;
     clock_t start;
-    for (n = nElementosXCantidad_Muestras; n <= nElementosXCantidad_Muestras*cant_valores_Tabla; n += nElementosXCantidad_Muestras)
+    start = clock();
+    for (int i = 0; i < rep; i++)
     {
-        start = clock();
-        for (int i = 0; i < rep; i++)
-        {
-            ras.v_at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
-        }
-        duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
-        cout << "tiempo de busqueda usando el int_vector v: ";
-        cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
-
-        start = clock();
-        for (int i = 0; i < rep; i++)
-        {
-            ras.at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
-        }
-        duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
-        cout << "tiempo de busqueda usando vPrima, el bit map y la operacion rank: ";
-        cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
+        ras.v_at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
     }
+    duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
+    cout << "tiempo de busqueda usando el int_vector v: ";
+    cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
 
+    start = clock();
+    for (int i = 0; i < rep; i++)
+    {
+        ras.at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
+    }
+    duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
+    cout << "tiempo de busqueda usando vPrima, el bit map y la operacion rank: ";
+    cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
+
+    
     ras.informe();
 
     cout << "Data set 128x128" << endl;
@@ -53,30 +49,26 @@ int main(int argc, char const *argv[]) // compilar con: g++ -std=c++17 -O3 -DNDE
     ras1.set_int_vector();
     ras1.get_Entropy();
     cout << "Entropia de data_set " << "'128x128': " <<  ras1.get_Entropy() << endl;
-    ras1.convert_to_succint_version();
+    ras1.convert_to_succinct_version();
     ras1.creark2Tree();
     ras1.matrizDiferencias();
 
-    for (n = nElementosXCantidad_Muestras; n <= nElementosXCantidad_Muestras*cant_valores_Tabla; n += nElementosXCantidad_Muestras)
+    for (int i = 0; i < rep; i++)
     {
-        start = clock();
-        for (int i = 0; i < rep; i++)
-        {
-            ras.v_at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
-        }
-        duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
-        cout << "tiempo de busqueda usando el int_vector v: ";
-        cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
-
-        start = clock();
-        for (int i = 0; i < rep; i++)
-        {
-            ras.at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
-        }
-        duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
-        cout << "tiempo de busqueda usando vPrima, el bit map y la operacion rank: ";
-        cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
+        ras1.v_at(100000); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
     }
+    duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
+    cout << "tiempo de busqueda usando el int_vector v: ";
+    cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
+
+    start = clock();
+    for (int i = 0; i < rep; i++)
+    {
+        ras1.at(100000); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
+    }
+    duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
+    cout << "tiempo de busqueda usando vPrima, el bit map y la operacion rank: ";
+    cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
 
     ras1.informe();
 
@@ -85,30 +77,26 @@ int main(int argc, char const *argv[]) // compilar con: g++ -std=c++17 -O3 -DNDE
     ras2.set_int_vector();
     ras2.get_Entropy();
     cout << "Entropia de data_set " << "'512x512': " <<  ras2.get_Entropy() << endl;
-    ras2.convert_to_succint_version();
+    ras2.convert_to_succinct_version();
     ras2.creark2Tree();
     ras2.matrizDiferencias();
 
-    for (n = nElementosXCantidad_Muestras; n <= nElementosXCantidad_Muestras*cant_valores_Tabla; n += nElementosXCantidad_Muestras)
+    for (int i = 0; i < rep; i++)
     {
-        start = clock();
-        for (int i = 0; i < rep; i++)
-        {
-            ras.v_at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
-        }
-        duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
-        cout << "tiempo de busqueda usando el int_vector v: ";
-        cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
-
-        start = clock();
-        for (int i = 0; i < rep; i++)
-        {
-            ras.at(3944); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
-        }
-        duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
-        cout << "tiempo de busqueda usando vPrima, el bit map y la operacion rank: ";
-        cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
+        ras2.v_at(1000000); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
     }
+    duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
+    cout << "tiempo de busqueda usando el int_vector v: ";
+    cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
+
+    start = clock();
+    for (int i = 0; i < rep; i++)
+    {
+        ras2.at(1000000); // velocidad de busqueda usando vPrima, el bit map y usando rank en ellos
+    }
+    duracion = (double)(clock()-start)/CLOCKS_PER_SEC/rep;
+    cout << "tiempo de busqueda usando vPrima, el bit map y la operacion rank: ";
+    cout << setprecision(20) << fixed << n << "," << duracion/(double)rep << endl;
 
     ras2.informe();
 // ----------------- experimentos de tiempo -----------------
