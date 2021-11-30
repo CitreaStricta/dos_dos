@@ -21,8 +21,8 @@ private:
     int_vector<> v;
     bit_vector b;
     int_vector<> vPrima;
-    sd_vector<> sdv;
-    sd_vector<>::rank_1_type sdv_rank;
+    rrr_vector<> rrrv;
+    rrr_vector<>::rank_1_type rrrv_rank;
     vector<vector<vector<int>>> mat_list;
     int calcularDiferencia(vector<vector<int>> mActual, vector<vector<int>> mAnterior, vector<int> &dif, bit_vector &rep, int ind);
 public:
@@ -30,11 +30,12 @@ public:
     ~raster();
     void set_int_vector();
     double get_Entropy();
-    void vector_to_bitset();
-    int at(int valor);
+    void convert_to_succint_version();
+    int at(int indice);
     void creark2Tree();
     void matrizDiferencias();
     int acceder();
     void informe();
+    int v_at(int indice);
 };
 #endif

@@ -86,7 +86,7 @@ double raster::get_Entropy()
 }
 
 // genera el vector vPrima y el bitmap del int_vector v
-void raster::vector_to_bitset()
+void raster::convert_to_succint_version()
 {
     b.resize(v.size()); // se debe pasar el tamaño de vec (8x8, 128x128 o 512x512 segun corresponda)
     vector<int> valores; // debe ser traspasado a un int_vector
@@ -117,15 +117,25 @@ void raster::vector_to_bitset()
     // cout << vPrima << endl;
 
 // 
-    sdv = sd_vector<>(b);
-    sdv_rank.set_vector(&sdv);
+ 
+    rrrv = rrr_vector<>(b);
+    rrrv_rank.set_vector(&rrrv);
+    rrr_vector<> rrrv(b);
+    cout << "peso (en bytes) de rrrrrr_vector: " << size_in_bytes(rrrv) << endl;
+
+    // cout << "peso de sd_vector y rrr_vector con bit_compress: " << endl;
+
+    // util::bit_compress(sdv.);
+    // cout << size_in_bytes(sdv) << endl;
+
+    // util::bit_compress(rrrv);
+    // cout << size_in_bytes(rrrv) << endl;
 }
 
 // numero: el i-esimo elemento en el int_vector v
-int raster::at(int numero)
+int raster::at(int indx)
 {
-    int valor = vPrima[sdv_rank(numero) - 1];
-    return valor;
+    return vPrima[rrrv_rank(indx) - 1];
 }
 
 void raster::creark2Tree()
@@ -167,10 +177,16 @@ void raster::matrizDiferencias(){
         indicador = calcularDiferencia(mat_list[i], mat_list[i-1], diferencias, repeticiones, indicador);
     }
 
-    int_vector<> differences;
+    int_vector<> differences; //v'
     differences.resize(diferencias.size());
     for (int i = 0; i < diferencias.size(); i++)
         differences[i] = diferencias[i];
+
+    cout
+    << "Peso (en bytes) de differences  (int_vector): " << size_in_bytes(differences) << "\n"
+    << "Peso (en bytes) de repeticiones (bit_vector): " << size_in_bytes(repeticiones)
+    << endl;
+
 
     //RECORDAR QUE (int64_t)differences[i] ME DA EL VALOR NEGATIVO DE LAS DIFERENCIAS
 /*
@@ -181,6 +197,8 @@ void raster::matrizDiferencias(){
     cout << endl << endl;
     */
     //cout << repeticiones << endl;
+
+    
 }
 
 int raster::calcularDiferencia(vector<vector<int>> mActual, vector<vector<int>> mAnterior, vector<int> &dif, bit_vector &rep, int ind){
@@ -208,11 +226,12 @@ int raster::calcularDiferencia(vector<vector<int>> mActual, vector<vector<int>> 
 void raster::informe()
 {
     cout
-    << "Datos para data_set " << dim << "x" << dim << "\n"
+    << "Datos para data_set " << dim << "x" << dim << " sin 'util::bit_compress()'\n"
     << "Entropia: " << H << "\n"
     << "Peso (en bytes) vector v: " << size_in_bytes(v) << "\n"
     << "Peso (en bytes) vector vPrima: " << size_in_bytes(vPrima) << "\n"
     << "Peso (en bytes) vector de bits: " << size_in_bytes(b) << "\n"
+    << "Peso (en bytes) rrr_vector: " << size_in_bytes(rrrv) << "\n"
     << endl;
 
     util::bit_compress(v);
@@ -220,10 +239,15 @@ void raster::informe()
     util::bit_compress(b);
 
     cout
-    << "Datos para data_set " << dim << "x" << dim << "\n"
+    << "Datos para data_set " << dim << "x" << dim << " con 'util::bit_compress()'\n"
     << "Entropia: " << H << "\n"
     << "Peso (en bytes) vector v: " << size_in_bytes(v) << "\n"
     << "Peso (en bytes) vector vPrima: " << size_in_bytes(vPrima) << "\n"
     << "Peso (en bytes) vector de bits: " << size_in_bytes(b) << "\n"
     << endl;
+}
+
+int raster::v_at(int indx)
+{
+    return v[indx];
 }
